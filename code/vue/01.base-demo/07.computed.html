@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+
+<div id="vue">
+    <div>方法调用：{{getCurrentTime1()}}</div>
+    <div>计算属性调用：{{getCurrentTime2}}</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+           message:""
+        },
+        methods:{
+            getCurrentTime1(){
+                return Date.now();
+            }
+        },
+        computed:{
+            getCurrentTime2(){
+                this.message;
+                return Date.now();
+            }
+        }
+    });
+</script>
+</body>
+</html>

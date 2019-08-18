@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+</head>
+<body>
+
+<div id="vue">
+
+    单行文本：
+    <input type="text" v-model="message" />&nbsp;&nbsp;单行文本是：{{message}}
+
+    <br>
+
+    多行文本：
+    <textarea v-model="message2"></textarea>&nbsp;&nbsp;多行文本是：{{message2}}
+
+    <br>
+
+    单复选框：
+    <input type="checkbox" id="checkbox" v-model="checked">&nbsp;&nbsp;<label for="checkbox">{{ checked }}</label>
+
+    <br>
+
+    多复选框：
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <span>选中的值: {{ checkedNames }}</span>
+
+    <br>
+
+    单选按钮：
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <span>选中的值: {{ picked }}</span>
+
+    <br>
+
+    下拉框：
+    <!--注意：如果 v-model 表达式的初始值未能匹配任何选项，<select> 元素将被渲染为“未选中”状态。-->
+    <!--在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 change 事件。因此，更推荐像上面这样提供一个值为空的禁用选项-->
+    <select v-model="selected">
+        <option disabled value="">请选择</option>
+        <option value="AAA">A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>选中的值: {{ selected }}</span>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+            message: "Hello Vue",
+            message2: "Hello Vue2",
+            checked: false,
+            checkedNames:[],
+            picked:"",
+            selected:"",
+        }
+    });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义组件</title>
+</head>
+<body>
+
+<div id="vue">
+    <my-component v-for="item in items" v-bind:my-value="item"></my-component>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script>
+
+    // 先注册组件
+    Vue.component('my-component',{
+        props:['myValue'],
+        template: '<li>{{myValue}}</li>'
+    });
+
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+           items:['aa','bb','cc','dd']
+        }
+    });
+</script>
+</body>
+</html>
